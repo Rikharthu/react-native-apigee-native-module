@@ -8,7 +8,6 @@ import {
   ScrollView
 } from 'react-native';
 
-
 export default class NativeModulesDemo extends Component {
 
   state={
@@ -16,10 +15,16 @@ export default class NativeModulesDemo extends Component {
   }
 
   componentWillMount(){
+    
+
+
+    // NativeModules.AndroidCallback.getEntitiesAsync("user",
+    //   "uuid = 5a220204-ceb1-11e6-a734-122e0737977d",
     NativeModules.AndroidCallback.getEntitiesAsync("user",
-      "uuid = 5a220204-ceb1-11e6-a734-122e0737977d",
+      "",
       (error)=>{console.log(error)},
-      (response)=>{this.setState({apiResponse:response})}
+      (response)=>{this.setState({apiResponse:response[0].username})}
+      
     )
   }
 
